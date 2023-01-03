@@ -1,0 +1,183 @@
+:root {
+    --clr-primary-400: hsl(215, 51%, 70%);
+    --clr-primary-600: hsl(178, 100%, 50%);
+
+    --clr-neutral-900: hsl(217, 54%, 11%);
+    --clr-neutral-800: hsl(216, 50%, 16%);
+    --clr-neutral-600: hsl(215, 32%, 27%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --ff-regular: 'Outfit', sans-serif;
+
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-bold: 600;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
+body {
+    background-color: var(--clr-neutral-900);
+    font-family: var(--ff-regular);
+    font-weight: var(--fw-light);
+    color: var(--clr-primary-400);
+    font-size: 1.125rem;
+    display: grid;
+    place-content: center;
+    padding: 1.5rem;
+}
+
+.nft-card {
+    background-color: var(--clr-neutral-800);
+    padding: 1.5rem;
+    display: grid;
+    gap: 0.8rem;
+    border-radius: 1rem;
+    max-width: 375px;
+}
+
+.nft-image-wrapper {
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: background-color .25s linear;
+    position: relative;
+}
+
+.nft-image-wrapper img{
+    transition: opacity .25s linear;
+}
+
+.nft-image-wrapper:is(:hover, :focus) {
+    background-color: var(--clr-primary-600);
+}
+
+.nft-image-wrapper:is(:hover, :focus) img {
+    opacity: .4;
+}
+
+.nft-image-wrapper:is(:hover, :focus) .view-icon {
+    opacity: 1;
+}
+
+.view-icon {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .25s linear;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nft-title a {
+    color: var(--clr-neutral-100);
+    font-size: 1.4rem;
+    transition: color .25s linear;
+}
+
+.nft-title a:is(:hover, :focus), .creator-name:is(:hover, :focus) {
+    color: var(--clr-primary-600);
+}
+
+.desc-flex-group, .desc-flex-group > * {
+    display: flex;
+}
+
+.desc-flex-group {
+    justify-content: space-between;
+}
+
+.desc-flex-group > * {
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.nft-amount {
+    color: var(--clr-primary-600);
+    font-weight: var(--fw-bold);
+}
+
+.creator {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border-top: 1px solid var(--clr-neutral-600);
+    padding-top: 1rem;
+}
+
+.creator, .creator-name {
+    font-weight: var(--fw-regular);
+    font-size: 1rem;
+}
+
+.creator-name {
+    color: var(--clr-neutral-100);
+    transition: color .25s linear;
+}
+
+.creator img {
+    max-width: 35px;
+    outline: 1px solid var(--clr-neutral-100);
+    border-radius: 50%;
+}
